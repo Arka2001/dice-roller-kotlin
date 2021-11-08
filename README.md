@@ -6,6 +6,9 @@ What this app does is that it displays 2 dice and a button underneath them.
 
 On clcking the button, some random numbers are generated and the faces of the dice also change depending on the random numbers generated on clicking the button.
 
+<br>
+<br>
+
 | Page | Image |
 | ---- | ----- |
 | <h3>Dice Page</h3> | <img src="./readme_assets/diceScreen.jpeg" width="350" height="750"> |
