@@ -8,4 +8,4 @@ On clcking the button, some random numbers are generated and the faces of the di
 
 | Page | Image |
 | ---- | ----- |
-| Dice Page | <img src="./assets/diceScreen.jpeg"> |
+| <h3>Dice Page</h3> | <img src="./readme_assets/diceScreen.jpeg" width="350" height="750"> |
