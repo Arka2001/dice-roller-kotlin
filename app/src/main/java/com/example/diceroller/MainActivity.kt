@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -12,32 +13,40 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton : Button = findViewById(R.id.button)
 
-
+        // Do a dice Roll once the "Roll" button is clicked
         rollButton.setOnClickListener {
             rollDice()
         }
     }
 
     private fun rollDice() {
-        val dice = Dice(6)
+        val dice1 = Dice(6)
+        val dice2 = Dice(6)
 
-        val diceRoll = dice.roll()
-        val luckyNumber = 4
+        val diceRoll1 = dice1.roll()
+        val diceRoll2 = dice2.roll()
 
-        val resultTextView: TextView = findViewById(R.id.textView)
-        val resultMessageTextView : TextView = findViewById(R.id.messageTextView)
+        // Create an array of the drawable resources which are going to be displayed on the screen
+        val diceImageIdList = arrayOf(
+            R.drawable.dice_1,
+            R.drawable.dice_2,
+            R.drawable.dice_3,
+            R.drawable.dice_4,
+            R.drawable.dice_5,
+            R.drawable.dice_6,
+        )
 
-        resultTextView.text = "$diceRoll"
+        // Take a reference of the ImageView which we are going to update by using findViewById method
+        val diceImage1: ImageView = findViewById(R.id.imageView)
+        val diceImage2: ImageView = findViewById(R.id.imageView2)
 
-        resultMessageTextView.text = when(diceRoll) {
-            luckyNumber -> "You Won!"
-            1 -> "So sorry! You rolled a 1. Try again!"
-            2 -> "Sadly, you rolled a 2. Try again!"
-            3 -> "Unfortunately, you rolled a 3. Try again!"
-            5 -> "Don't cry! You rolled a 5. Try again!"
-            6 -> "Apologies! you rolled a 6. Try again!"
-            else -> "Result"
-        }
+        // Finally update the image view using the value returned by the roll() method of the Dice class
+        diceImage1.setImageResource(diceImageIdList[diceRoll1-1])
+        diceImage2.setImageResource(diceImageIdList[diceRoll2-1])
+
+        // Update the contentDescription
+        diceImage1.contentDescription = diceRoll1.toString()
+        diceImage2.contentDescription = diceRoll2.toString()
     }
 }
 
